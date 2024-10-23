@@ -12,37 +12,57 @@ public class Generator {
         alphabet = new Alphabet(IncludeUpper, IncludeLower, IncludeNum, IncludeSym);
     }
 
+    
+    /**
+     * Initiates and manages the main program loop for the Password Generator application.
+     * This method displays a welcome message, presents a menu of options to the user,
+     * and processes user input until the user chooses to quit the program.
+     * 
+     * The loop continues until the user selects option '4' to quit. For each valid option,
+     * the corresponding method is called and the menu is reprinted. Invalid inputs are
+     * handled by prompting the user to select a valid option.
+     * 
+     * No parameters are required as it uses class-level variables and methods.
+     * 
+     * This method does not return a value; it runs until the user chooses to exit.
+     */
     public void mainLoop() {
-        System.out.println("Welcome to Good Password Services. How can we be of service today? :)");
-        printMenu();
+        System.out.println("Welcome to Good Password Services. How can we be of service today?? :)");  // Display welcome message
+        printMenu();  // Display the main menu options
 
-        String userOption = "-1";
+        String userOption = "-1";  // Initialize user option, "-1" serves as a default value
 
-        while (!userOption.equals("4")) {
+        while (!userOption.equals("4")) {  // Continue loop until user chooses to quit (option "4")
+            userOption = keyboard.next();  // Read user input for menu selection
 
-            userOption = keyboard.next();
-
-            switch (userOption) {
-                case "1" -> {
-                    requestPassword();
-                    printMenu();
+            switch (userOption) {  // Process user's menu selection
+                case "1" -> {  // Option 1: Generate a new password
+                    requestPassword();  // Call method to handle password generation
+                    printMenu();  // Redisplay menu after operation
                 }
-                case "2" -> {
-                    checkPassword();
-                    printMenu();
+                case "2" -> {  // Option 2: Check password strength
+                    checkPassword();  // Call method to evaluate password strength
+                    printMenu();  // Redisplay menu after operation
                 }
-                case "3" -> {
-                    printUsefulInfo();
-                    printMenu();
+                case "3" -> {  // Option 3: Display useful password information
+                    printUsefulInfo();  // Call method to show password guidelines
+                    printMenu();  // Redisplay menu after operation
                 }
-                case "4" -> printQuitMessage();
-                default -> {
-                    System.out.println("Kindly select one of the available commands"); // USe within code completion portion of demo, create a better message
-                    printMenu();
+                case "4" -> printQuitMessage();  // Option 4: Exit the program
+                default -> {  // Handle invalid input
+                    System.out.println("Kindly select one of the available commands");  // Prompt for valid input
+                    printMenu();  // Redisplay menu for user to choose again
                 }
             }
         }
     }
+
+
+
+
+
+
+
 
 
     private Password GeneratePassword(int length) {
@@ -73,10 +93,11 @@ public class Generator {
                 "and biographical information (e.g., ID numbers, ancestors' names or dates).");
         System.out.println("Avoid using information that the user's colleagues and/or " +  // Caution against using personal information
                 "acquaintances might know to be associated with the user");
-        System.out.println("Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");  // Warn against combining weak elements
+        System.out.println("Do not use passwords which consist wholly of any simple combination of the aforementioned weak components"); 
     }
 
 
+        
 
     public void requestPassword() {
         boolean IncludeUpper = false;
