@@ -76,16 +76,51 @@ public int CharType(char C) {
 
     public String calculateScore() {
         int Score = this.PasswordStrength();
+        String visualization = this.visualizePasswordStrength();
         if (Score == 6) {
-            return "This is a very good password :D check the Useful Information section to make sure it satisfies the guidelines";
+            return visualization + "\nThis is a very good password :D check the Useful Information section to make sure it satisfies the guidelines";
         } else if (Score >= 4) {
-            return "This is a good password :) but you can still do better";
+            return visualization + "\nThis is a good password :) but you can still do better";
         } else if (Score >= 3) {
-            return "This is a medium password :/ try making it better";
+            return visualization + "\nThis is a medium password :/ try making it better";
         } else {
-            return "This is a weak password :( definitely find a new one";
+            return visualization + "\nThis is a weak password :( definitely find a new one";
         }
     }
+
+public String visualizePasswordStrength() {
+    int strength = this.PasswordStrength();
+    StringBuilder visualization = new StringBuilder("[");
+    
+    for (int i = 0; i < 6; i++) {
+        if (i < strength) {
+            visualization.append("█");
+        } else {
+            visualization.append("░");
+        }
+    }
+    
+    visualization.append("] ");
+    
+    switch (strength) {
+        case 1:
+        case 2:
+            visualization.append("Weak");
+            break;
+        case 3:
+        case 4:
+            visualization.append("Medium");
+            break;
+        case 5:
+            visualization.append("Strong");
+            break;
+        case 6:
+            visualization.append("Very Strong");
+            break;
+    }
+    
+    return visualization.toString();
+}
 
     @Override
     public String toString() {

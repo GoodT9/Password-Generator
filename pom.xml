@@ -17,6 +17,13 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>Password-Generator</id>
+            <url>https://github.com/GoodT9/Password-Generator.git</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>

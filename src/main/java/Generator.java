@@ -13,49 +13,40 @@ public class Generator {
     }
 
     
-    /**
-     * Initiates and manages the main program loop for the Password Generator application.
-     * This method displays a welcome message, presents a menu of options to the user,
-     * and processes user input until the user chooses to quit the program.
-     * 
-     * The loop continues until the user selects option '4' to quit. For each valid option,
-     * the corresponding method is called and the menu is reprinted. Invalid inputs are
-     * handled by prompting the user to select a valid option.
-     * 
-     * No parameters are required as it uses class-level variables and methods.
-     * 
-     * This method does not return a value; it runs until the user chooses to exit.
-     */
-    public void mainLoop() {
+   
+    public void mainLoop() {                                                   // Main loop of the password generator program
         System.out.println("Welcome to Good Password Services. How can we be of service today?? :)");  // Display welcome message
-        printMenu();  // Display the main menu options
+        printMenu();                                                           // Show initial menu options
 
-        String userOption = "-1";  // Initialize user option, "-1" serves as a default value
+        String userOption = "-1";                                              // Initialize user option
 
-        while (!userOption.equals("4")) {  // Continue loop until user chooses to quit (option "4")
-            userOption = keyboard.next();  // Read user input for menu selection
+        while (!userOption.equals("4")) {                                      // Continue loop until user chooses to quit
+            userOption = keyboard.next();                                      // Get user input
 
-            switch (userOption) {  // Process user's menu selection
-                case "1" -> {  // Option 1: Generate a new password
-                    requestPassword();  // Call method to handle password generation
-                    printMenu();  // Redisplay menu after operation
+            switch (userOption) {                                              // Process user input
+                case "1" -> {                                                  // Option 1: Generate new password
+                    requestPassword();                                         // Call method to generate password
+                    printMenu();                                               // Display menu again
                 }
-                case "2" -> {  // Option 2: Check password strength
-                    checkPassword();  // Call method to evaluate password strength
-                    printMenu();  // Redisplay menu after operation
+                case "2" -> {                                                  // Option 2: Check password strength
+                    checkPassword();                                           // Call method to check password
+                    printMenu();                                               // Display menu again
                 }
-                case "3" -> {  // Option 3: Display useful password information
-                    printUsefulInfo();  // Call method to show password guidelines
-                    printMenu();  // Redisplay menu after operation
+                case "3" -> {                                                  // Option 3: Show useful information
+                    printUsefulInfo();                                         // Call method to display information
+                    printMenu();                                               // Display menu again
                 }
-                case "4" -> printQuitMessage();  // Option 4: Exit the program
-                default -> {  // Handle invalid input
+                case "4" -> printQuitMessage();                                // Option 4: Quit program
+                default -> {                                                   // Invalid option
                     System.out.println("Kindly select one of the available commands");  // Prompt for valid input
-                    printMenu();  // Redisplay menu for user to choose again
+                    printMenu();                                               // Display menu again
                 }
             }
         }
     }
+
+
+
 
 
 
@@ -82,22 +73,30 @@ public class Generator {
         return new Password(pass.toString());
     }
 
-    public void printUsefulInfo() {                                            // Method to display password security guidelines
-        System.out.println();                                                   // Print a blank line for better readability
-        System.out.println("Use a minimum password length of 8 or more characters if permitted");  // Advise on minimum password length
-        System.out.println("Include lowercase and uppercase alphabetic characters, numbers and symbols if permitted");  // Suggest character types to include
-        System.out.println("Generate passwords randomly where feasible");       // Emphasize the importance of randomness
-        System.out.println("Avoid using the same password twice (e.g., across multiple user accounts and/or software systems)");  // Warn against password reuse
-        System.out.println("Avoid character repetition, keyboard patterns, dictionary words, letter or number sequences," +  // List patterns to avoid in passwords
+    public void printUsefulInfo() {
+        System.out.println();
+        System.out.println("Use a minimum password length of 8 or more characters if permitted");
+        System.out.println("Include lowercase and uppercase alphabetic characters, numbers and symbols if permitted");
+        System.out.println("Generate passwords randomly where feasible");
+        System.out.println("Avoid using the same password twice (e.g., across multiple user accounts and/or software systems)");
+        System.out.println("Avoid character repetition, keyboard patterns, dictionary words, letter or number sequences," +
                 "\nusernames, relative or pet names, romantic links (current or past) " +
                 "and biographical information (e.g., ID numbers, ancestors' names or dates).");
-        System.out.println("Avoid using information that the user's colleagues and/or " +  // Caution against using personal information
+        System.out.println("Avoid using information that the user's colleagues and/or " +
                 "acquaintances might know to be associated with the user");
-        System.out.println("Do not use passwords which consist wholly of any simple combination of the aforementioned weak components"); 
+        System.out.println("Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");
+
+        // New tips added for MAR2-83
+        System.out.println("Use a unique password for each of your important accounts");
+        System.out.println("Use a password manager to generate and store complex passwords securely");
+        System.out.println("Enable two-factor authentication (2FA) whenever possible for additional security");
+        System.out.println("Regularly update your passwords, especially if you suspect they might have been compromised");
+        System.out.println("Avoid sharing your passwords with others, even if they claim to be from IT support");
     }
 
 
-        
+
+
 
     public void requestPassword() {
         boolean IncludeUpper = false;
