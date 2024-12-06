@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: GeneratorTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in GeneratorTest
+GeneratorTest.testRequestPassword  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at GeneratorTest.testRequestPassword(GeneratorTest.java:70)
+
+GeneratorTest.testCheckPassword  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at GeneratorTest.testCheckPassword(GeneratorTest.java:53)
+
+GeneratorTest.testGeneratePassword  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The method GeneratePassword(int) from the type Generator is not visible
+	The method getValue() is undefined for the type Password
+
+	at GeneratorTest.testGeneratePassword(GeneratorTest.java:24)
+
