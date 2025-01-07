@@ -1,0 +1,35 @@
+{
+  "version": "v1",
+  "commands": [
+    {
+      "id": "90254917-4d7d-46d0-b3ab-761170beb0d2",
+      "version": "v1",
+      "name": "code-bard",
+      "description": "Let's lighten the mood, shall we?",
+      "updatedAt": "1733518738430",
+      "promptTemplate": [
+        {
+          "type": "text",
+          "text": "Transform the code comments in the selected code into rhymes, haikus, or short poems to make documentation more engaging and fun."
+        }
+      ],
+      "promptTemplateText": "Transform the code comments in the selected code into rhymes, haikus, or short poems to make documentation more engaging and fun.",
+      "type": "shared"
+    },
+    {
+      "id": "1ce91dc7-9601-4899-bf9b-a678ff508aae",
+      "version": "v1",
+      "name": "dependency-whisperer",
+      "description": "Monitors and manages your project’s dependencies",
+      "updatedAt": "1733505877673",
+      "promptTemplate": [
+        {
+          "type": "text",
+          "text": "Review and analyze all the dependencies in my pom.xml file, and alert me of any outdated or vulnerable dependencies. Suggests alternatives or help with version upgrades and dependency conflict resolution if needed."
+        }
+      ],
+      "promptTemplateText": "Review and analyze all the dependencies in my pom.xml file, and alert me of any outdated or vulnerable dependencies. Suggests alternatives or help with version upgrades and dependency conflict resolution if needed.",
+      "type": "shared"
+    }
+  ]
+}

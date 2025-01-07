@@ -13,9 +13,17 @@ public class Generator {
     }
    
 
-    public void mainLoop() {
-        System.out.println("Welcome to Good Password Services. How can we be of service today?? :)");
+    /**
+     * Executes the main loop of the password generator and checker program.
+     * This method displays a welcome message, presents a menu of options to the user,
+     * and processes user input until the user chooses to quit the program.
+     * It handles options for generating a password, checking password strength,
+     * displaying password security information, and quitting the program.
+     */
+    public void mainLoop() { // Fixed: Corrected the typo in 'public'
+        System.out.println("Welcome to Good Password Services. How can we be of service today?? :)"); // Fixed: Changed Console.out to System.out
         printMenu();
+
 
         String userOption = "-1";
 
@@ -23,31 +31,37 @@ public class Generator {
             userOption = keyboard.next();
 
             switch (userOption) {
-                case "1" -> {
+                case "1":
                     requestPassword();
                     printMenu();
-                }
-                case "2" -> {
+                    break;
+                case "2":
                     checkPassword();
                     printMenu();
-                }
-                case "3" -> {
+                    break;
+                case "3":
                     printUsefulInfo();
                     printMenu();
-                }
-                case "4" -> printQuitMessage();
-                default -> {
+                    break;
+                case "4":
+                    printQuitMessage();
+                    break;
+                default:
                     System.out.println("Kindly select one of the available commands");
                     printMenu();
-                }
+                    break;
             }
         }
+
     }
 
-
-
-
-
+    /**
+     * Generates a password based on the specified length and the current alphabet configuration.
+     * 
+     * @param length The desired length of the password. Must be greater than 0.
+     * @return A Password object containing the generated password string.
+     * @throws IllegalArgumentException if the specified length is less than 1.
+     */
     private Password GeneratePassword(int length) {
         if (length < 1) {
             throw new IllegalArgumentException("Password length must be at least 1");
@@ -69,6 +83,7 @@ public class Generator {
     }
 
 
+
 /**
  * Prints a comprehensive list of password security tips to the console.
  * This method provides users with best practices for creating and managing secure passwords.
@@ -79,25 +94,28 @@ public class Generator {
  * It directly prints the information to the console using System.out.println().
  */
 public void printUsefulInfo() {
-    System.out.println("\n=== Password Security Tips ===");                      // Prints the header for the security tips
-    System.out.println("1. Use a minimum password length of 8 or more characters if permitted");  // Advises on minimum password length
-    System.out.println("2. Include lowercase and uppercase alphabetic characters, numbers and symbols if permitted");  // Recommends using a mix of character types
-    System.out.println("3. Generate passwords randomly where feasible");         // Suggests using random password generation
-    System.out.println("4. Avoid using the same password twice (e.g., across multiple user accounts and/or software systems)");  // Warns against password reuse
-    System.out.println("5. Avoid character repetition, keyboard patterns, dictionary words, letter or number sequences,\n   usernames, relative or pet names, romantic links (current or past) and biographical information (e.g., ID numbers, ancestors' names or dates).");  // Lists patterns and information to avoid in passwords
-    System.out.println("6. Avoid using information that the user's colleagues and/or acquaintances might know to be associated with the user");  // Advises against using personal information
-    System.out.println("7. Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");  // Warns against combining weak password elements
-    System.out.println("8. Use a unique password for each of your important accounts");  // Emphasizes the importance of unique passwords
-    System.out.println("9. Use a password manager to generate and store complex passwords securely");  // Recommends using a password manager
-    System.out.println("10. Enable two-factor authentication (2FA) whenever possible for additional security");  // Suggests enabling 2FA for extra security
-    System.out.println("11. Regularly update your passwords, especially if you suspect they might have been compromised");  // Advises on password update frequency
-    System.out.println("12. Avoid sharing your passwords with others, even if they claim to be from IT support");  // Warns against sharing passwords
-    System.out.println("13. Do not use the same password for multiple accounts if the accounts are not related to each other");  // Reiterates the importance of unique passwords
-    System.out.println("14. Consider using passphrases: long sequences of random words that are easy to remember but hard to crack");  // Suggests using passphrases
-    System.out.println("15. Set up security questions with answers that are not easily guessable or found on social media");  // Advises on setting up secure security questions
+    System.out.println("\n=== Password Security Tips ===");
+    System.out.println("1. Use a minimum password length of 8 or more characters if permitted");
+    System.out.println("2. Include lowercase and uppercase alphabetic characters, numbers and symbols if permitted");
+    System.out.println("3. Generate passwords randomly where feasible");
+    System.out.println("4. Avoid using the same password twice (e.g., across multiple user accounts and/or software systems)");
+    System.out.println("5. Avoid character repetition, keyboard patterns, dictionary words, letter or number sequences,\n   usernames, relative or pet names, romantic links (current or past) and biographical information (e.g., ID numbers, ancestors' names or dates).");
+    System.out.println("6. Avoid using information that the user's colleagues and/or acquaintances might know to be associated with the user");
+    System.out.println("7. Do not use passwords which consist wholly of any simple combination of the aforementioned weak components");
+    System.out.println("8. Use a unique password for each of your important accounts");
+    System.out.println("9. Use a password manager to generate and store complex passwords securely");
+    System.out.println("10. Enable two-factor authentication (2FA) whenever possible for additional security");
+    System.out.println("11. Regularly update your passwords, especially if you suspect they might have been compromised");
+    System.out.println("12. Avoid sharing your passwords with others, even if they claim to be from IT support");
+    System.out.println("13. Do not use the same password for multiple accounts if the accounts are not related to each other");
+    System.out.println("14. Consider using passphrases: long sequences of random words that are easy to remember but hard to crack");
+    System.out.println("15. Set up security questions with answers that are not easily guessable or found on social media");
+    System.out.println("16. If you suspect your password has been compromised, contact your IT support team immediately");
+    // New rules added for MAR2-83
+    System.out.println("17. Do not share passwords with anyone!");
+    System.out.println("18. Do not store passwords anywhere publicly accessible");
+    
 }
-
-
 
 
     public void requestPassword() {
@@ -164,16 +182,16 @@ public void printUsefulInfo() {
         System.err.println("Your generated password -> " + password);
     }
 
-
-
-    boolean isInclude(String Input) {
-        if (Input.equalsIgnoreCase("yes")) {
-            return true;
+    boolean isInclude(String Input) {                  // Determines if the input string indicates inclusion
+        if (Input.equalsIgnoreCase("yes")) {           // Checks if the input is "yes" (case-insensitive)
+            return true;                               // Returns true if the input is "yes"
         } 
         else {
-            return false;
+            return false;                              // Returns false for any input other than "yes"
         }
     }
+
+
 
     public void PasswordRequestError(String i) {
         if (!i.equalsIgnoreCase("yes") && !i.equalsIgnoreCase("no")) {

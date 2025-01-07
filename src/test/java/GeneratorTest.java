@@ -26,6 +26,35 @@ public class GeneratorTest {
         assertFalse(generator.isInclude("NO"));
     }
 
+/**
+ * A test of strength, a digital quest,
+ * For passwords strong, we put to test.
+ * 
+ * Input we forge, with care and might,
+ * System streams we bend to our sight.
+ * 
+ * A haiku for each step we take:
+ * 
+ * Strong password born
+ * Bytes flow like a gentle stream
+ * Input simulated
+ * 
+ * System.in bows
+ * To our will, a new path forged
+ * Generator wakes
+ * 
+ * Output captured
+ * In bytes, a story unfolds
+ * Console whispers
+ * 
+ * Method called forth
+ * Password's strength laid bare to all
+ * Truth in characters
+ * 
+ * Assert with pride
+ * "Your password is strong," it says
+ * Test complete, peace
+ */
     /**
      * Tests the checkPassword method of the Generator class.
      * This test simulates user input for a password, captures the output,
@@ -54,7 +83,7 @@ public class GeneratorTest {
         generator.checkPassword();
 
         String output = outContent.toString();
-        assertTrue(output.contains("Your password is strong"));
+        assertTrue(output.contains("Your password is strong, it meets all requirements."));
     }
 
     /**
