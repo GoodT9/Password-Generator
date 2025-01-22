@@ -20,10 +20,9 @@ public class Generator {
      * It handles options for generating a password, checking password strength,
      * displaying password security information, and quitting the program.
      */
-    public void mainLoop() { // Fixed: Corrected the typo in 'public'
-        System.out.println("Welcome to Good Password Services. How can we be of service today?? :)"); // Fixed: Changed Console.out to System.out
+    public void mainLoop() {
+        System.out.println("Welcome to Good Password Services. How can we be of service today?? :)");
         printMenu();
-
 
         String userOption = "-1";
 
@@ -52,8 +51,9 @@ public class Generator {
                     break;
             }
         }
-
     }
+
+
 
     /**
      * Generates a password based on the specified length and the current alphabet configuration.
@@ -82,17 +82,6 @@ public class Generator {
         return new Password(pass.toString());
     }
 
-
-
-/**
- * Prints a comprehensive list of password security tips to the console.
- * This method provides users with best practices for creating and managing secure passwords.
- * The tips cover various aspects of password security, including length, complexity,
- * uniqueness, and general security practices.
- *
- * This method does not take any parameters and does not return any value.
- * It directly prints the information to the console using System.out.println().
- */
 public void printUsefulInfo() {
     System.out.println("\n=== Password Security Tips ===");
     System.out.println("1. Use a minimum password length of 8 or more characters if permitted");
@@ -105,17 +94,15 @@ public void printUsefulInfo() {
     System.out.println("8. Use a unique password for each of your important accounts");
     System.out.println("9. Use a password manager to generate and store complex passwords securely");
     System.out.println("10. Enable two-factor authentication (2FA) whenever possible for additional security");
+
     System.out.println("11. Regularly update your passwords, especially if you suspect they might have been compromised");
     System.out.println("12. Avoid sharing your passwords with others, even if they claim to be from IT support");
     System.out.println("13. Do not use the same password for multiple accounts if the accounts are not related to each other");
     System.out.println("14. Consider using passphrases: long sequences of random words that are easy to remember but hard to crack");
     System.out.println("15. Set up security questions with answers that are not easily guessable or found on social media");
     System.out.println("16. If you suspect your password has been compromised, contact your IT support team immediately");
-    // New rules added for MAR2-83
-    System.out.println("17. Do not share passwords with anyone!");
-    System.out.println("18. Do not store passwords anywhere publicly accessible");
-    
 }
+
 
 
     public void requestPassword() {
@@ -199,6 +186,17 @@ public void printUsefulInfo() {
         }
     }
 
+
+    /**
+     * Prompts the user to enter a password and checks its strength.
+     * This method asks the user to input a password, creates a Password object,
+     * calculates the password's strength score, and displays the result.
+     * 
+     * The strength calculation is performed by the Password class's calculateScore method.
+     * The exact scoring mechanism is defined in the Password class.
+     * 
+     * This method does not return any value but prints the score to the console.
+     */
     public void checkPassword() {
         String input;
 
@@ -209,6 +207,7 @@ public void printUsefulInfo() {
 
         System.out.println(p.calculateScore());
     }
+
 public void printMenu() {
     System.out.println("\n==========================================");
     System.out.println("   Password Generator and Checker Menu");

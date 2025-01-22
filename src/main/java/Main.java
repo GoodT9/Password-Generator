@@ -2,11 +2,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    // if you have any errors running this code, run mvn clean install -e and run again
     public static final Scanner keyboard = new Scanner(System.in);
 
     /**
-     * The main entry point of the Password Generator application.
+     * The main entry point of The Password Factory application.
      * This method initializes the generator, displays a colorful banner,
      * runs the main program loop, and closes the input scanner.
      *
@@ -18,13 +17,14 @@ public class Main {
         generator.mainLoop();
         keyboard.close();
     }
+
     private static void displayBanner() {
         String banner =
             "\n\033[1;35m" + // Bright Magenta
             "┌───────────────────────────────────────┐\n" +
             "│                                       │\n" +
-            "│          Password Generator           │\n" +
-            "│                 v1.0                  │\n" +
+            "│         The Password Factory          │\n" +
+            "│                 v2.0                  │\n" +
             "│                                       │\n" +
             "│     Generate Secure Passwords &       │\n" +
             "│       Check Password Strength         │\n" +
@@ -33,5 +33,4 @@ public class Main {
             "\033[0m"; // Reset color
         System.out.println(banner);
     }
-
 }

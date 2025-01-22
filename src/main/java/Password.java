@@ -44,6 +44,22 @@ public int CharType(char C) {
     return val;
 }
 
+    /**
+     * Calculates the strength of the password based on various criteria.
+     * 
+     * This method evaluates the password strength by checking for the presence of:
+     * - Uppercase letters
+     * - Lowercase letters
+     * - Numbers
+     * - Symbols
+     * It also considers the length of the password.
+     * 
+     * @return An integer score representing the password strength:
+     *         - 1 point for each: uppercase, lowercase, number, and symbol used
+     *         - 1 point if length is 8 or more
+     *         - 1 additional point if length is 16 or more
+     *         The maximum possible score is 6.
+     */
     public int PasswordStrength() {
         String s = this.Value;
         boolean UsedUpper = false;
@@ -73,6 +89,7 @@ public int CharType(char C) {
 
         return Score;
     }
+
 
     public String calculateScore() {
         int Score = this.PasswordStrength();
